@@ -12,6 +12,10 @@ describe SinatraAPIParser do
     it "should return number of results as an Integer" do
       expect(@test_call.get_num_results).to be_instance_of Integer
     end
+
+    it "should return when it was last updated as a String" do
+      expect(@test_call.get_last_updated).to be_instance_of String
+    end
   end
 
   context "Results Service" do

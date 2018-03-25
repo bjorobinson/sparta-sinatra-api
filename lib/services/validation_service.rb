@@ -29,4 +29,8 @@ class ValidationService
     get_response['num_results']
   end
 
+  def get_last_updated
+    get_response['last_updated']
+  end
+
 end
