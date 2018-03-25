@@ -14,7 +14,8 @@ class ResultsService
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true
     uri.query = URI.encode_www_form({
-      "api-key" => "103a2f8fe48f4435bd2a2bc5244a8931"
+      "api-key" => "9475a911b98b401b9b7f892722e93807"
+      # "api-key" => "103a2f8fe48f4435bd2a2bc5244a8931"
     })
     request = Net::HTTP::Get.new(uri.request_uri)
     @api_response = JSON.parse(http.request(request).body)['results']
@@ -78,4 +79,22 @@ class ResultsService
       article
     end
   end
+
+  def get_single_article_for_index index
+    if is_valid_index index
+      article = []
+      article << get_title(index)
+      article << get_URL(index)
+      article
+    end
+  end
+
+  def get_articles_for_index
+    all_articles = []
+    get_titles.each do |i|
+      all_articles << get_single_article_for_index(i)
+    end
+    all_articles
+  end
+
 end

@@ -1,6 +1,15 @@
 <h1>Homepage</h1>
 
 <p>This site uses the New York Times API to generate its page content.</p>
-<p>API status: <%= @api_response.get_status %></p>
-<p>Current Version includes <%= @api_response.get_num_results %> articles</p>
-<p>Last Update: <%= @api_response.get_last_updated %> </p>
+<p>API status: <%= @validation.get_status %></p>
+<p>Current Version includes <%= @validation.get_num_results %> articles</p>
+<p>Last Update: <%= @validation.get_last_updated %> </p>
+
+<table>
+  <th>
+    <td>Article Title</td>
+  </th>
+  <tr>
+    <td><%= @results[0] %></td>
+  </tr>
+</table>

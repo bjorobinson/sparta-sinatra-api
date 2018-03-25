@@ -14,7 +14,8 @@ class ValidationService
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true
     uri.query = URI.encode_www_form({
-      "api-key" => "103a2f8fe48f4435bd2a2bc5244a8931"
+      "api-key" => "9475a911b98b401b9b7f892722e93807"
+      # "api-key" => "103a2f8fe48f4435bd2a2bc5244a8931"
     })
     request = Net::HTTP::Get.new(uri.request_uri)
     @api_response = JSON.parse(http.request(request).body)
