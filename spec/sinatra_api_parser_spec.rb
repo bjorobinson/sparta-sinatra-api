@@ -53,5 +53,9 @@ describe SinatraAPIParser do
     it "should, using an article index, return the articles byline" do
       expect(@test_call.get_byline(0)).to be_instance_of String
     end
+
+    it "should, using an index number, return an array with the articles title, section, abstract, url and byline" do
+      expect(@test_call.get_article(0)).to be_instance_of Array
+    end
   end
 end

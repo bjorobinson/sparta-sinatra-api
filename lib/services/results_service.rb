@@ -34,7 +34,7 @@ class ResultsService
   end
 
   def is_valid_index index
-    (0..get_max_index).cover? index
+    (0..get_max_index).cover?(index)
   end
 
   def get_title index
@@ -64,6 +64,18 @@ class ResultsService
   def get_byline index
     if is_valid_index index
       get_response[index]['byline']
+    end
+  end
+
+  def get_article index
+    if is_valid_index index
+      article = []
+      article << get_title(index)
+      article << get_section(index)
+      article << get_abstract(index)
+      article << get_URL(index)
+      article << get_byline(index)
+      article
     end
   end
 end
