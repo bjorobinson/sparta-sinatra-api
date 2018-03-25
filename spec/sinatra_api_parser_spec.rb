@@ -19,24 +19,19 @@ describe SinatraAPIParser do
       @test_call = SinatraAPIParser.new.results_service
     end
 
-    it "..." do
-      # puts @test_call.get_response[0]['section']
-      # puts @test_call.get_sections
-    end
-
     it "should return a list of all article titles" do
       expect(@test_call.get_titles).to be_instance_of Array
     end
 
     it "should return the maximum index of results" do
-      expect(@test_call.get_max_index).to be_instance of Integer
+      expect(@test_call.get_max_index).to be_instance_of Integer
     end
 
     it "should check if a number provided as an arguement is within the valid bounds of the index range" do
       expect(@test_call.is_valid_index(0)).to be true
       expect(@test_call.is_valid_index(@test_call.get_max_index)).to be true
-      expect(@test_call.is_valid_index(-1).to be false
-      expect(@test_call.is_valid_index(@test_call.get_max_index)+1).to be false
+      expect(@test_call.is_valid_index(-1)).to be false
+      expect(@test_call.is_valid_index(@test_call.get_max_index+1)).to be false
     end
 
     it "should, using an index in results, return articles title" do
@@ -52,7 +47,7 @@ describe SinatraAPIParser do
     end
 
     it "should, using an article index, return the articles shortenned URL" do
-      expect(@test_call.get_url(0)).to be_instance_of String
+      expect(@test_call.get_URL(0)).to be_instance_of String
     end
 
     it "should, using an article index, return the articles byline" do

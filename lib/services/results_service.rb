@@ -21,7 +21,7 @@ class ResultsService
     # puts @api_response
   end
 
-  def get_sections
+  def get_titles
     arr = []
     get_response.each do |result|
       arr << result['section']
@@ -29,4 +29,41 @@ class ResultsService
     arr
   end
 
+  def get_max_index
+    get_titles.length-1
+  end
+
+  def is_valid_index index
+    (0..get_max_index).cover? index
+  end
+
+  def get_title index
+    if is_valid_index index
+      get_response[index]['title']
+    end
+  end
+
+  def get_section index
+    if is_valid_index index
+      get_response[index]['section']
+    end
+  end
+
+  def get_abstract index
+    if is_valid_index index
+      get_response[index]['abstract']
+    end
+  end
+
+  def get_URL index
+    if is_valid_index index
+      get_response[index]['short_url']
+    end
+  end
+
+  def get_byline index
+    if is_valid_index index
+      get_response[index]['byline']
+    end
+  end
 end
