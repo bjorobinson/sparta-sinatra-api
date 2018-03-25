@@ -8,6 +8,7 @@ class APIController < Sinatra::Base
 
   get '/' do
     @title = "Article Index"
+    @article = ResultsService.new.get_article(0)
     erb :'articles/index'
   end
 end
