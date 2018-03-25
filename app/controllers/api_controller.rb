@@ -12,4 +12,11 @@ class APIController < Sinatra::Base
     @results = ResultsService.new.get_single_article_for_index(0)
     erb :'articles/index'
   end
+
+  get '/:id' do
+    id = params[:id].to_i
+    @title = "Article Show Page"
+    @article = ResultsService.new.get_article(id)
+    erb :'articles/show'
+  end
 end
