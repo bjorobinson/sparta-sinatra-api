@@ -6,12 +6,12 @@
 <p>Last Update: <%= @validation.get_last_updated %> </p>
 
 <table>
-  <th>
-    <td>Article Title</td>
-    <td>External Link</td>
-  </th>
+  <tr>
+    <th>Article Title</th>
+    <th>External Link</th>
+  </tr>
   <tr>
     <td><%= @results[0] %></td>
-    <% embed = "<td><a href='#{@results[1]}'>test</a></td>" %>
+    <td><a href='<%= @results[1] %>'><%= @results[1] %></a></td>
   </tr>
 </table>
