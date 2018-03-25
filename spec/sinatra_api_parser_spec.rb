@@ -66,8 +66,8 @@ describe SinatraAPIParser do
       expect(@test_call.get_single_article_for_index(0)).to be_instance_of Array
     end
 
-    it "should return a 2D Array of article names and their external links to be displayed on the index page" do
-      expect(@test_call.get_articles_for_index).to be_instance_of Array
-    end
+    # it "should return a 2D Array of article names and their external links to be displayed on the index page" do
+    #   expect(@test_call.get_articles_for_index).to be_instance_of Array
+    # end
   end
 end
