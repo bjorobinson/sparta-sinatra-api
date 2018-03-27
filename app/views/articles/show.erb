@@ -1,6 +1,6 @@
 <h1>Show Page</h1>
-<h2><%= @article[0] %></h1>
-<h3><%= @article[1] %></h3>
-<p><%= @article[2] %></p>
-<p><a href='<%= @article[3] %>'><%= @article[3] %></a></p>
-<p><%= @article[4] %></p>
+<h2><%= @article['title'] %></h1>
+<h3><%= @article['section'] %></h3>
+<p><%= @article['abstract'] %></p>
+<p><a href='<%= @article["url"] %>'><%= @article["short_url"] %></a></p>
+<p><%= @article['byline'] %></p>

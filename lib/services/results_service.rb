@@ -22,79 +22,12 @@ class ResultsService
     # puts @api_response
   end
 
-  def get_titles
-    arr = []
-    get_response.each do |result|
-      arr << result['section']
-    end
-    arr
-  end
-
-  def get_max_index
-    get_titles.length-1
-  end
-
-  def is_valid_index index
-    (0..get_max_index).cover?(index)
-  end
-
-  def get_title index
-    if is_valid_index index
-      get_response[index]['title']
-    end
-  end
-
-  def get_section index
-    if is_valid_index index
-      get_response[index]['section']
-    end
-  end
-
-  def get_abstract index
-    if is_valid_index index
-      get_response[index]['abstract']
-    end
-  end
-
-  def get_URL index
-    if is_valid_index index
-      get_response[index]['short_url']
-    end
-  end
-
-  def get_byline index
-    if is_valid_index index
-      get_response[index]['byline']
-    end
-  end
-
   def get_article index
-    if is_valid_index index
-      article = []
-      article << get_title(index)
-      article << get_section(index)
-      article << get_abstract(index)
-      article << get_URL(index)
-      article << get_byline(index)
-      article
-    end
+    get_response[index]
   end
 
-  def get_single_article_for_index index
-    if is_valid_index index
-      article = []
-      article << get_title(index)
-      article << get_URL(index)
-      article
-    end
-  end
-
-  def get_articles_for_index
-    all_articles = []
-    get_titles.each do |i|
-      all_articles << get_single_article_for_index(i)
-    end
-    all_articles
+  def get_article_component index,component
+    get_article(index)[component]
   end
 
 end
