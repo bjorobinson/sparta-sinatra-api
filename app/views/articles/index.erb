@@ -1,0 +1,23 @@
+<h1>Homepage</h1>
+
+<p>This site uses the New York Times API to generate its page content.</p>
+<p>API status: <%= @validation.get_status %></p>
+<p>Current Version includes <%= @validation.get_num_results %> articles</p>
+<p>Last Update: <%= @validation.get_last_updated %> </p>
+
+<table>
+  <tr>
+    <th>Top Stories</th>
+    <th>Internal Link</th>
+    <th>External Link</th>
+  </tr>
+  <% counter = 0 %>
+  <% @results.each do |result| %>
+  <tr>
+    <td><%= result['title'] %></td>
+    <td><a href='/<%= counter %>'>Show</a></td>
+    <td><a href='<%= result["url"] %>'><%= result["short_url"] %></a></td>
+  </tr>
+  <% counter += 1 %>
+  <% end %>
+</table>
