@@ -7,13 +7,17 @@
 
 <table>
   <tr>
-    <th>Article Title</th>
+    <th>Top Stories</th>
     <th>Internal Link</th>
     <th>External Link</th>
   </tr>
+  <% counter = 0 %>
+  <% @results.each do |result| %>
   <tr>
-    <td><%= @results['title'] %></td>
-    <td><a href='/0'>Show</a></td>
-    <td><a href='<%= @results["url"] %>'><%= @results["short_url"] %></a></td>
+    <td><%= result['title'] %></td>
+    <td><a href='/<%= counter %>'>Show</a></td>
+    <td><a href='<%= result["url"] %>'><%= result["short_url"] %></a></td>
   </tr>
+  <% counter += 1 %>
+  <% end %>
 </table>
